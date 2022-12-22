@@ -88,3 +88,8 @@ predicted label: automobile, actual label: ship
 ================================================ short test summary info ================================================
 FAILED test_serve/test_torch_serve_grpc.py::TestFargateGradio::test_predict - AssertionError: 'ship' != 'automobile'
 =================================================== 1 failed in 0.36s ===================================================
+
+
+![alt text](https://github.com/sparshk/emlov2-session-08/blob/main/logbook/download.png)
+
+![alt text](https://github.com/sparshk/emlov2-session-08/blob/main/logbook/download-1.png)
