@@ -12,6 +12,10 @@ hydra-core==1.2.0
 hydra-colorlog==1.2.0
 hydra-optuna-sweeper==1.2.0
 
+# --------- torchserve --------- #
+torchserve 
+torch-model-archiver
+
 # --------- loggers --------- #
 # wandb
 # neptune-client

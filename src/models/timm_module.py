@@ -37,22 +37,22 @@ class TIMMLitModule(LightningModule):
 
         # for tracking best so far validation accuracy
         self.val_acc_best = MaxMetric()
-        self.predict_transform = T.Normalize((0.1307,), (0.3081,))
+        self.predict_transform = T.Normalize((0.49139968, 0.48215827 ,0.44653124), (0.24703233, 0.24348505, 0.26158768))
 
     def forward(self, x: torch.Tensor):
         return self.net(x)
 
-    @torch.jit.export
-    def forward_jit(self, x: torch.Tensor):
-        with torch.no_grad():
-            # transform the inputs
-            x = self.predict_transform(x)
+    # @torch.jit.export
+    # def forward_jit(self, x: torch.Tensor):
+    #     with torch.no_grad():
+    #         # transform the inputs
+    #         x = self.predict_transform(x)
 
-            # forward pass
-            logits = self(x)
-            preds = F.softmax(logits, dim=-1)
+    #         # forward pass
+    #         logits = self(x)
+    #         preds = F.softmax(logits, dim=-1)
 
-        return preds
+    #     return preds
 
     def on_train_start(self):
         # by default lightning executes validation step sanity checks before training starts,
