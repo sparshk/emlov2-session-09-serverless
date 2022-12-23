@@ -1,26 +1,9 @@
-# LOGS OF TORCHSERVE
+## LOGS OF TORCHSERVE
 
-(torchserve) ubuntu@ip-172-31-45-124:~/emlov2-session-08$ pytest test_serve/test_
-torch_serve-py
-==
-= test session starts
-platform linux - Python 3.9.15, pytest-7.2.0, pluggy-1.0.0
-rootdir: /home/ubuntu/emlov2-session-08, configfile: pyproject.toml
-plugins: hydra-core-1.2.0
-collected 1 item
-test_serve/test_torch_serve.py: :TestFargateGradio: :test_predict PASSED
-0.19s call
-slowest durations
-test_serve/test_torch_serve.py::TestFargateGradio::test_predict
-(2 durations < 0.005s hidden.
-Use
--yv to show these durations-
-)
-1 passed in 0.28s
-[100%]
+![alt text](https://github.com/sparshk/emlov2-session-08/blob/main/logbook/serve_test.png)
 
 
-# LOGS OF GRPC
+## LOGS OF GRPC
 
 (torchserve) ubuntu@ip-172-31-45-124:~/emlov2-session-08$ pytest test_serve/test_torch_serve_grpc.py 
 ================================================== test session starts ==================================================
@@ -89,7 +72,9 @@ predicted label: automobile, actual label: ship
 FAILED test_serve/test_torch_serve_grpc.py::TestFargateGradio::test_predict - AssertionError: 'ship' != 'automobile'
 =================================================== 1 failed in 0.36s ===================================================
 
+## EXPLAINABILITY IMAGES
 
 ![alt text](https://github.com/sparshk/emlov2-session-08/blob/main/logbook/download.png)
 
 ![alt text](https://github.com/sparshk/emlov2-session-08/blob/main/logbook/download-1.png)
+
