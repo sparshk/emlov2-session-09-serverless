@@ -47,14 +47,10 @@ class CIFAR10DataModule(LightningDataModule):
         super().__init__()
         self.save_hyperparameters(logger=False)
         self.transforms = transforms.Compose(
-            [
-                transforms.Resize(32),
-                transforms.ToTensor(),
-                transforms.Normalize((0.49139968, 0.48215827 ,0.44653124), (0.24703233, 0.24348505, 0.26158768)),
-            ]
+            [transforms.ToTensor(), transforms.Normalize((0.1307,), (0.3081,))]
         )
 
-        self.dims = (3, 32, 32)
+        
         #self.num_classes = 10
 
         self.data_train: Optional[Dataset] = None
