@@ -5,43 +5,42 @@
 
 ## LOGS OF GRPC
 
-(torchserve) ubuntu@ip-172-31-45-124:~/emlov2-session-08$ pytest test_serve/test_torch_serve_grpc.py 
-================================================== test session starts ==================================================
+[1m============================= test session starts ==============================[0m
 platform linux -- Python 3.9.15, pytest-7.2.0, pluggy-1.0.0
-rootdir: /home/ubuntu/emlov2-session-08, configfile: pyproject.toml
+rootdir: /home/ubuntu/sparsh/tsai/emlov2-session-08, configfile: pyproject.toml
 plugins: hydra-core-1.2.0
-collected 1 item                                                                                                        
+collected 1 item
 
-test_serve/test_torch_serve_grpc.py::TestFargateGradio::test_predict FAILED                                       [100%]
+test_serve/test_torch_serve_grpc.py::TestFargateGradio::test_predict [31mFAILED[0m[31m [100%][0m
 
-======================================================= FAILURES ========================================================
-____________________________________________ TestFargateGradio.test_predict _____________________________________________
+=================================== FAILURES ===================================
+[31m[1m________________________ TestFargateGradio.test_predict ________________________[0m
 
 self = <test_torch_serve_grpc.TestFargateGradio testMethod=test_predict>
 
-    def test_predict(self):
-        for image_path in self.image_paths:
-            print(f"testing: {image_path}")
+    [94mdef[39;49;00m [92mtest_predict[39;49;00m([96mself[39;49;00m):
+        [94mfor[39;49;00m image_path [95min[39;49;00m [96mself[39;49;00m.image_paths:
+            [96mprint[39;49;00m([33mf[39;49;00m[33m"[39;49;00m[33mtesting: [39;49;00m[33m{[39;49;00mimage_path[33m}[39;49;00m[33m"[39;49;00m)
     
-            response = infer(self.stub, 'cifar', 'test_serve/image/' + image_path)
+            response = infer([96mself[39;49;00m.stub, [33m'[39;49;00m[33mcifar[39;49;00m[33m'[39;49;00m, [33m'[39;49;00m[33mtest_serve/image/[39;49;00m[33m'[39;49;00m + image_path)
     
     
-            # print(f"response: {response.text}")
+            [90m# print(f"response: {response.text}")[39;49;00m
     
             data = json.loads(response)
     
-            predicted_label = list(data)[0]
-            act_label = image_path.split(".")[0].split('_')[-1]
+            predicted_label = [96mlist[39;49;00m(data)[[94m0[39;49;00m]
+            act_label = image_path.split([33m"[39;49;00m[33m.[39;49;00m[33m"[39;49;00m)[[94m0[39;49;00m].split([33m'[39;49;00m[33m_[39;49;00m[33m'[39;49;00m)[-[94m1[39;49;00m]
     
-            print(f"predicted label: {predicted_label}, actual label: {act_label}")
+            [96mprint[39;49;00m([33mf[39;49;00m[33m"[39;49;00m[33mpredicted label: [39;49;00m[33m{[39;49;00mpredicted_label[33m}[39;49;00m[33m, actual label: [39;49;00m[33m{[39;49;00mact_label[33m}[39;49;00m[33m"[39;49;00m)
     
->           self.assertEqual(act_label, predicted_label)
-E           AssertionError: 'ship' != 'automobile'
-E           - ship
-E           + automobile
+>           [96mself[39;49;00m.assertEqual(act_label, predicted_label)
+[1m[31mE           AssertionError: 'ship' != 'automobile'[0m
+[1m[31mE           - ship[0m
+[1m[31mE           + automobile[0m
 
-test_serve/test_torch_serve_grpc.py:55: AssertionError
-------------------------------------------------- Captured stdout call --------------------------------------------------
+[1m[31mtest_serve/test_torch_serve_grpc.py[0m:54: AssertionError
+----------------------------- Captured stdout call -----------------------------
 testing: 1000_truck.png
 predicted label: truck, actual label: truck
 done testing: 1000_truck.png
@@ -64,13 +63,14 @@ done testing: 10001_frog.png
 
 testing: 10003_ship.png
 predicted label: automobile, actual label: ship
-=================================================== slowest durations ===================================================
-0.12s call     test_serve/test_torch_serve_grpc.py::TestFargateGradio::test_predict
+============================== slowest durations ===============================
+0.07s call     test_serve/test_torch_serve_grpc.py::TestFargateGradio::test_predict
 
 (2 durations < 0.005s hidden.  Use -vv to show these durations.)
-================================================ short test summary info ================================================
-FAILED test_serve/test_torch_serve_grpc.py::TestFargateGradio::test_predict - AssertionError: 'ship' != 'automobile'
-=================================================== 1 failed in 0.36s ===================================================
+[36m[1m=========================== short test summary info ============================[0m
+[31mFAILED[0m test_serve/test_torch_serve_grpc.py::[1mTestFargateGradio::test_predict[0m - AssertionError: 'ship' != 'automobile'
+[31m============================== [31m[1m1 failed[0m[31m in 0.30s[0m[31m ===============================[0m
+
 
 ## EXPLAINABILITY IMAGES
 

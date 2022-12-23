@@ -37,7 +37,7 @@ class TIMMLitModule(LightningModule):
 
         # for tracking best so far validation accuracy
         self.val_acc_best = MaxMetric()
-        self.predict_transform = T.Normalize((0.49139968, 0.48215827 ,0.44653124), (0.24703233, 0.24348505, 0.26158768))
+        self.predict_transform = T.Normalize((0.1307,), (0.3081,))
 
     def forward(self, x: torch.Tensor):
         return self.net(x)

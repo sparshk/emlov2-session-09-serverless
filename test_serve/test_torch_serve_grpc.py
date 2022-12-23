@@ -1,12 +1,11 @@
 
 import sys
 import pyrootutils
-
+import grpc
 root = pyrootutils.setup_root(sys.path[0], pythonpath=True, cwd=True)
 sys.path.insert(0,'serve/ts_scripts/')
 import unittest
-import inference_pb2
-import inference_pb2_grpc
+from serve.ts_scripts import inference_pb2
 import requests
 import json
 import base64

@@ -1,0 +1,13 @@
+[1m============================= test session starts ==============================[0m
+platform linux -- Python 3.9.15, pytest-7.2.0, pluggy-1.0.0
+rootdir: /home/ubuntu/sparsh/tsai/emlov2-session-08, configfile: pyproject.toml
+plugins: hydra-core-1.2.0
+collected 1 item
+
+test_serve/test_torch_serve.py::TestFargateGradio::test_predict [32mPASSED[0m[32m   [100%][0m
+
+============================== slowest durations ===============================
+0.10s call     test_serve/test_torch_serve.py::TestFargateGradio::test_predict
+
+(2 durations < 0.005s hidden.  Use -vv to show these durations.)
+[32m============================== [32m[1m1 passed[0m[32m in 0.19s[0m[32m ===============================[0m
