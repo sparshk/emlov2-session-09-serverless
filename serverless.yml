@@ -1,0 +1,16 @@
+service: serverless-cifar
+ 
+provider:
+  name: aws #cloud provider
+  region: ap-south-1 #region (mumbai)
+  memorySize: 10240 #memory usage
+  timeout: 300 
+ 
+functions:
+  mnist:
+    image:  
+    events:
+      - http:
+          path: inference 
+          method: post 
+          cors: true

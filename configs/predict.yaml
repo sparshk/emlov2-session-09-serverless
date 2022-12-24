@@ -1,2 +1,0 @@
-model: resnet18
-image: https://github.com/pytorch/hub/raw/master/images/dog.jpg
