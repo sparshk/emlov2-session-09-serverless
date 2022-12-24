@@ -10,7 +10,14 @@ from typing import Dict
 
 from utils import decode_base64_to_image, load_label_mapping, map_class_to_label
 
+
+print("Loading scripted model...")
 model = torch.jit.load("cifar-model.script.pt")
+print("Scripted Model Loaded!")
+
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+model = model.to(device)
+
 model.eval()
 predict_transforms = T.Compose(
     [
@@ -31,10 +38,14 @@ categories = load_label_mapping("index_to_name.json")
 
 def inference(image: Image) -> Dict[str, int]:
     img_tensor = predict_transforms(image).unsqueeze(0)
+    img_tensor = img_tensor.to(device)
 
+    print("Completed setting tensor to GPU...")
     with torch.no_grad():
-        logits = model(img_tensor)
 
+        print("Inference call...")
+        logits = model(img_tensor)
+        print("Logits received...")
         preds = F.softmax(logits, dim=-1)
 
     return preds
