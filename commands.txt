@@ -1,6 +1,6 @@
 docker build -t cifar-serverless .
 
-docker run --rm -it -p 8080:8080 --gpus all -t cifar-serverless
+docker run --rm -it -p 8080:8080 -t cifar-serverless
 
 curl --location --request POST 'http://localhost:8080/2015-03-31/functions/function/invocations' \
 --header 'Content-Type: application/json' \
