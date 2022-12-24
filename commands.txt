@@ -1,0 +1,9 @@
+torch-model-archiver --model-name cifar_basic --version 1.0 --serialized-file /home/ubuntu/sparsh/tsai/emlov2-session-08/logs/train/runs/2022-12-24_08-49-01/model.script.pt --handler /home/ubuntu/sparsh/tsai/emlov2-session-08/src/torch_handlers/cifar_handler.py --extra-files /home/ubuntu/sparsh/tsai/emlov2-session-08/src/torch_handlers/cifar_classes/index_to_name.json
+
+torchserve --start --model-store model_store --models cifar=cifar_basic.mar
+
+curl "http://localhost:8081/models"
+
+curl http://127.0.0.1:8080/predictions/cifar -T 0.png
+
+

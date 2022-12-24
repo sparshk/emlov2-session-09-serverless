@@ -16,12 +16,12 @@ class ImageClassifier(VisionHandler):
     # These are the standard Imagenet dimensions
     # and statistics
     image_processing = T.Compose(
-        [
-            T.Resize(32),
-            T.ToTensor(),
-            T.Normalize((0.49139968, 0.48215827 ,0.44653124), (0.24703233, 0.24348505, 0.26158768)),
-        ]
-    )
+            [
+                T.Resize(224),
+                T.ToTensor(),
+                T.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010)),
+            ]
+        )
 
     def set_max_result_classes(self, topk):
         self.topk = topk
