@@ -4,6 +4,6 @@ torchserve --start --model-store model_store --models cifar=cifar_basic.mar
 
 curl "http://localhost:8081/models"
 
-curl http://127.0.0.1:8080/predictions/cifar -T 0.png
+curl http://127.0.0.1:8080/predictions/cifar -T /home/ubuntu/sparsh/tsai/emlov2-session-08/test_serve/image/10003_ship.png
 
 
